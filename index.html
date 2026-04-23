@@ -5,20 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Syed Talha Faiz | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap)" rel="stylesheet">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  margin:0; padding:0; box-sizing:border-box;
   font-family:'Inter',sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body{
-  background:#050814;
+  background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);
   color:white;
   overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  background:rgba(10,10,25,0.7);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  z-index:100;
+}
+
+nav h2{
+  color:#38bdf8;
+  font-weight:700;
+}
+
+nav a{
+  color:#cbd5e1;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:500;
+}
+
+nav a:hover{
+  color:#38bdf8;
 }
 
 /* HERO */
@@ -29,105 +62,155 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  background: radial-gradient(circle at top,#1d4ed8,transparent 60%),
-              radial-gradient(circle at bottom,#9333ea,transparent 60%);
+  background: radial-gradient(circle at top,#1d4ed8,transparent 70%),
+              radial-gradient(circle at bottom,#9333ea,transparent 70%);
+  background-size:cover;
+  position:relative;
+  animation:gradientMove 6s infinite alternate;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:100% 50%;}
 }
 
 .hero h1{
-  font-size:60px;
+  font-size:64px;
   font-weight:800;
-  animation:fadeUp 1s ease;
+  animation:fadeUp 1.2s ease;
+  text-shadow:0 0 20px rgba(56,189,248,0.3);
 }
 
 .hero p{
   color:#cbd5e1;
   margin-top:10px;
-  font-size:18px;
+  font-size:20px;
+  opacity:0.9;
+  animation:typewriter 3s steps(30) 1;
+  overflow:hidden;
+  white-space:nowrap;
+  border-right:3px solid #38bdf8;
+  width:23ch;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 23ch; }
 }
 
 .btn{
-  margin-top:20px;
-  padding:12px 22px;
+  margin-top:30px;
+  padding:14px 28px;
   border:none;
   border-radius:8px;
   cursor:pointer;
   font-weight:600;
+  transition:all 0.3s ease;
 }
 
 .btn-primary{
-  background:#2563eb;
+  background:linear-gradient(90deg,#2563eb,#9333ea);
   color:white;
+  box-shadow:0 0 15px rgba(56,189,248,0.4);
+  animation:pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from{box-shadow:0 0 10px rgba(56,189,248,0.2);}
+  to{box-shadow:0 0 25px rgba(147,51,234,0.6);}
 }
 
 .btn-primary:hover{
-  background:#1d4ed8;
+  transform:translateY(-3px) scale(1.05);
 }
 
 /* SECTION */
 section{
   max-width:1000px;
   margin:auto;
-  padding:80px 20px;
+  padding:100px 20px;
+  animation:fadeUp 1s ease both;
 }
 
 h2{
-  font-size:30px;
-  margin-bottom:20px;
+  font-size:32px;
+  margin-bottom:25px;
   color:#38bdf8;
+  text-align:center;
 }
 
-/* CARDS */
+/* GRID & CARD */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  gap:25px;
 }
 
 .card{
   background:rgba(255,255,255,0.05);
-  padding:20px;
+  padding:25px;
   border-radius:15px;
   border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
-  transition:0.3s;
+  backdrop-filter:blur(12px);
+  transition:all 0.4s ease;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
 }
 
 .card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px);
   border-color:#38bdf8;
+  box-shadow:0 0 25px rgba(56,189,248,0.4);
 }
 
 /* TAGS */
 .tag{
   display:inline-block;
   margin:5px;
-  padding:6px 10px;
+  padding:6px 12px;
   background:#1e3a8a;
   border-radius:6px;
-  font-size:12px;
+  font-size:13px;
+  color:#93c5fd;
+  transition:0.3s;
 }
 
-/* CONTACT */
+.tag:hover{
+  background:#2563eb;
+  color:white;
+}
+
+/* CONTACT & FOOTER */
 .contact{
   text-align:center;
 }
 
-/* FOOTER */
 footer{
   text-align:center;
-  padding:20px;
+  padding:25px;
   color:#94a3b8;
+  border-top:1px solid rgba(255,255,255,0.1);
 }
 
-/* ANIMATION */
+/* ANIMATIONS */
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(20px);}
+  from{opacity:0; transform:translateY(40px);}
   to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
 
 <body>
+
+<!-- NAV -->
+<nav>
+  <h2>Syed Talha Faiz</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
@@ -137,16 +220,16 @@ footer{
 </div>
 
 <!-- ABOUT -->
-<section>
+<section id="about">
   <h2>About Me</h2>
   <div class="card">
     I build and manage scalable software systems using Agile, Cloud, and DevOps practices.
-    Focused on delivering clean execution and high-performance digital products.
+    My focus is on delivering high-performance digital solutions with precision and speed.
   </div>
 </section>
 
-<!-- SKILLS -->
-<section>
+<!-- EXPERTISE -->
+<section id="skills">
   <h2>Expertise</h2>
   <div class="grid">
     <div class="card">📊 Project Management</div>
@@ -155,22 +238,23 @@ footer{
   </div>
 </section>
 
-<!-- SKILLS TAGS -->
+<!-- SKILLS -->
 <section>
   <h2>Skills</h2>
   <div class="card">
     <span class="tag">Agile</span>
     <span class="tag">Scrum</span>
     <span class="tag">Jira</span>
-    <span class="tag">CI/CD</span>
     <span class="tag">Docker</span>
     <span class="tag">Kubernetes</span>
+    <span class="tag">Terraform</span>
+    <span class="tag">CI/CD</span>
     <span class="tag">Cloud Architecture</span>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section>
+<section id="services">
   <h2>Services</h2>
   <div class="card">
     ✔ Project Planning & Delivery<br>
@@ -182,12 +266,14 @@ footer{
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
+<section class="contact" id="contact">
   <h2>Contact</h2>
   <div class="card">
-    Email: syedtalhafaiz@gmail.com <br>
-    Phone: 03055644446 <br>
-    LinkedIn: linkedin.com/in/syedtalhafaiz
+    📧 syedtalhafaiz@gmail.com<br>
+    📞 0305-5644446<br>
+    💼 <a style="color:#38bdf8;" href="[linkedin.com](https://linkedin.com/in/syedtalhafaiz)" target="_blank">
+        linkedin.com/in/syedtalhafaiz
+       </a>
   </div>
 </section>
 
